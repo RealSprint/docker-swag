@@ -120,6 +120,7 @@ RUN \
     certbot-dns-inwx \
     certbot-dns-ionos \
     certbot-dns-linode \
+    certbot-dns-loopia \
     certbot-dns-luadns \
     certbot-dns-netcup \
     certbot-dns-njalla \
@@ -127,6 +128,7 @@ RUN \
     certbot-dns-ovh \
     certbot-dns-rfc2136 \
     certbot-dns-route53 \
+    certbot-dns-standalone \
     certbot-dns-transip \
     certbot-dns-vultr \
     certbot-plugin-gandi \
