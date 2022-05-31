@@ -160,6 +160,7 @@ services:
       - PROPAGATION= #optional
       - DUCKDNSTOKEN= #optional
       - EMAIL= #optional
+      - RSA_KEY_SIZE=4096 #optional
       - ONLY_SUBDOMAINS=false #optional
       - EXTRA_DOMAINS= #optional
       - STAGING=false #optional
@@ -188,6 +189,7 @@ docker run -d \
   -e PROPAGATION= `#optional` \
   -e DUCKDNSTOKEN= `#optional` \
   -e EMAIL= `#optional` \
+  -e RSA_KEY_SIZE=4096 `#optional` \
   -e ONLY_SUBDOMAINS=false `#optional` \
   -e EXTRA_DOMAINS= `#optional` \
   -e STAGING=false `#optional` \
@@ -217,6 +219,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PROPAGATION=` | Optionally override (in seconds) the default propagation time for the dns plugins. |
 | `-e DUCKDNSTOKEN=` | Required if `VALIDATION` is set to `duckdns`. Retrieve your token from https://www.duckdns.org |
 | `-e EMAIL=` | Optional e-mail address used for cert expiration notifications (Required for ZeroSSL). |
+| `-e RSA_KEY_SIZE=` | Optional RSA key size used for cert creation. |
 | `-e ONLY_SUBDOMAINS=false` | If you wish to get certs only for certain subdomains, but not the main domain (main domain may be hosted on another machine and cannot be validated), set this to `true` |
 | `-e EXTRA_DOMAINS=` | Additional fully qualified domain names (comma separated, no spaces) ie. `extradomain.com,subdomain.anotherdomain.org,*.anotherdomain.org` |
 | `-e STAGING=false` | Set to `true` to retrieve certs in staging mode. Rate limits will be much higher, but the resulting cert will not pass the browser's security test. Only to be used for testing purposes. |
