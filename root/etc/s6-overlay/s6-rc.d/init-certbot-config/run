@@ -14,6 +14,7 @@ VALIDATION=${VALIDATION}\\n\
 CERTPROVIDER=${CERTPROVIDER}\\n\
 DNSPLUGIN=${DNSPLUGIN}\\n\
 EMAIL=${EMAIL}\\n\
+RSA_KEY_SIZE=${RSA_KEY_SIZE:=4096}\\n\
 STAGING=${STAGING}\\n"
 
 # Sanitize variables
@@ -269,6 +270,10 @@ if [[ -n "${EXTRA_DOMAINS}" ]]; then
     done
     echo "Extra domains processed are: $(echo "${EXTRA_DOMAINS_ARRAY[*]}" | tr " " ",")"
     DOMAINS_ARRAY+=("${EXTRA_DOMAINS_ARRAY[@]}")
+fi
+
+if [[ -n "${RSA_KEY_SIZE}" ]]; then
+    set_ini_value "rsa-key-size" "${RSA_KEY_SIZE}" /config/etc/letsencrypt/cli.ini
 fi
 
 # setting domains in cli.ini
