@@ -273,7 +273,8 @@ if [[ -n "${EXTRA_DOMAINS}" ]]; then
 fi
 
 if [[ -n "${RSA_KEY_SIZE}" ]]; then
-    set_int_value "key-type" "rsa" /config/etc/letsencrypt/cli.ini
+    echo "RSA key size entered: ${RSA_KEY_SIZE}"
+    set_ini_value "key-type" "rsa" /config/etc/letsencrypt/cli.ini
     set_ini_value "rsa-key-size" "${RSA_KEY_SIZE}" /config/etc/letsencrypt/cli.ini
 fi
 
